@@ -28,7 +28,7 @@
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" class="form-control" required="">
                     </div>
-                    @if(\Illuminate\Support\Facades\Cookie::has('login_attempts') && \Illuminate\Support\Facades\Cookie::get('login_attempts') >= 3)
+                    @if(\Illuminate\Support\Facades\Cookie::has(\App\Http\Controllers\LoginController::LIMIT_ATTEMPTS_COOKIE_PARAM) && \Illuminate\Support\Facades\Cookie::get(\App\Http\Controllers\LoginController::LIMIT_ATTEMPTS_COOKIE_PARAM) >= 3)
                         <div class="form-group">
                             <p>{!! \Mews\Captcha\Facades\Captcha::img(); !!}</p>
                             <input type="text" id="captcha" name="captcha" class="form-control" required="">
